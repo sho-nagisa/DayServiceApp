@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>らくらくHUG</title>
+    <title>利用者ページ</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -15,7 +15,7 @@
         body {
             background-color: #fef9db; /* 背景色 */
             font-family: 'Noto Sans JP', sans-serif; /* 柔らかく読みやすいフォント */
-            font-weight: 300; /* さらに軽い印象を与えるフォントウェイト */
+            font-weight: 300;
         }
 
         header {
@@ -35,18 +35,38 @@
             .rounded-button:hover {
                 background-color: #a0735b; /* ホバー時に少し明るい焦げ茶色に */
             }
+
+        .button-grid {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* ボタン間の間隔 */
+        }
     </style>
 </head>
 <body>
     <header class="py-3 border-bottom">
-        <h2 class="text-center fw-bold text-white">らくらくHUG</h2>
+        <h2 class="text-center fw-bold text-white">利用者ページ</h2>
     </header>
     <div class="text-center py-5">
         <div class="container">
-            <div class="d-flex flex-column align-items-center gap-4 mt-4">
-                <button class="btn shadow-sm rounded-button">個別記録</button>
-                <button class="btn shadow-sm rounded-button">個別支援計画作成</button>
-                <button class="btn shadow-sm rounded-button">日報作成</button>
+            <div class="button-grid">
+                <!-- 左側のボタングループ -->
+                <div class="button-group">
+                    <button class="btn shadow-sm rounded-button">利用者A</button>
+                    <button class="btn shadow-sm rounded-button">利用者B</button>
+                    <button class="btn shadow-sm rounded-button">利用者C</button>
+                </div>
+                <!-- 右側のボタングループ -->
+                <div class="button-group">
+                    <button class="btn shadow-sm rounded-button">利用者D</button>
+                    <button class="btn shadow-sm rounded-button">利用者E</button>
+                    <button class="btn shadow-sm rounded-button">利用者F</button>
+                </div>
             </div>
         </div>
     </div>

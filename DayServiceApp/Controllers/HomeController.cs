@@ -22,7 +22,14 @@ namespace DayServiceApp.Controllers
         {
             return View();
         }
-
+        public IActionResult staff_list()
+        {
+            return View();
+        }
+        public IActionResult Individual_records()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
