@@ -26,7 +26,7 @@ namespace DayServiceApp.Controllers
         {
             return View();
         }
-        public IActionResult Individual_records()
+        public IActionResult IndividualRecords()
         {
             return View();
         }
