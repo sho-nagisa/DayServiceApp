@@ -24,5 +24,25 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: #fef9db; /* 背景色 */
+    font-family: 'Noto Sans JP', sans-serif; /* 柔らかく読みやすいフォント */
+    font-weight: 300; /* さらに軽い印象を与えるフォントウェイト */
+}
+
+header {
+    background-color: #eca89b; /* ヘッダー部分の背景色 */
+}
+
+.rounded-button {
+    border-radius: 30px; /* ボタンを丸みを帯びた形状に */
+    background-color: #8b5e3c; /* 柔らかい焦げ茶色 */
+    color: white;
+    width: 220px; /* ボタンの幅を統一 */
+    height: 60px; /* ボタンの高さを統一 */
+    font-size: 1.2rem; /* ボタンの文字サイズを調整 */
+    font-weight: 500; /* ボタンの文字に少し強調 */
+}
+
+rounded-button:hover {
+    background-color: #a0735b; /* ホバー時に少し明るい焦げ茶色に */
 }

@@ -22,7 +22,7 @@ namespace DayServiceApp.Controllers
         {
             return View();
         }
-        public IActionResult staff_list()
+        public IActionResult IndividualSupportPlans()
         {
             return View();
         }
