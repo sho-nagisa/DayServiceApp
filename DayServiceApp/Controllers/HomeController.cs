@@ -50,6 +50,16 @@ namespace DayServiceApp.Controllers
             // 取得したリストをビューに渡す
             return View(users);
         }
+        public IActionResult RecordsView()
+        {
+            // Records テーブルと User テーブルを関連付けてデータを取得
+            var records = _context.Records
+                .Include(r => r.User) // User を関連付けてロード
+                .ToList();
+
+            return View(records);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

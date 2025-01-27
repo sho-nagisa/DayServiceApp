@@ -24,7 +24,7 @@ namespace DayServiceApp.Models
         public DateTime updated_at { get; set; }
 
         [ForeignKey("user_id")]
-        public virtual User? User { get; set; } // `?` を追加してオプションにする
+        public virtual User User { get; set; } // `?` を追加してオプションにする
     }
 
 }

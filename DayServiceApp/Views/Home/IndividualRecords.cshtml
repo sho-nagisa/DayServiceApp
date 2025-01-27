@@ -22,17 +22,18 @@
     </header>
     <div class="text-center py-4">
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-2 g-3">
+            <!-- 常に2列表示 -->
+            <div class="row row-cols-2 g-3">
                 @foreach (var user in Model)
                 {
                     <div class="col d-flex justify-content-center">
                         <!-- user.user_id をパラメータにして IndividualSupportService へ飛ぶ -->
                         <a href="@Url.Action(
-                action: "IndividualSupportPlans",
-                controller: "Home",
-                values: new { user_id = user.user_id }
-            )"
-                           class="shadow-sm rounded-link"
+                            action: "IndividualSupportPlans",
+                            controller: "Home",
+                            values: new { user_id = user.user_id }
+                        )"
+                           class="shadow-sm rounded-link-list"
                            aria-label="@user.name">
                             @user.name
                         </a>
@@ -40,6 +41,9 @@
                 }
             </div>
         </div>
+        <footer class="py-3 border-top text-center">
+            <a href="/" class="back-link">ホーム画面に戻る</a>
+        </footer>
     </div>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
