@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<DayServiceApp.Models.User>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -18,24 +23,21 @@
     <div class="text-center py-4">
         <div class="container">
             <div class="row row-cols-1 row-cols-md-2 g-3">
-                <div class="col d-flex justify-content-center">
-                    <a href="#" class="shadow-sm rounded-link" aria-label="利用者A">利用者A</a>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <a href="#" class="shadow-sm rounded-link" aria-label="利用者B">利用者B</a>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <a href="#" class="shadow-sm rounded-link" aria-label="利用者C">利用者C</a>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <a href="#" class="shadow-sm rounded-link" aria-label="利用者D">利用者D</a>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <a href="#" class="shadow-sm rounded-link" aria-label="利用者E">利用者E</a>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <a href="#" class="shadow-sm rounded-link" aria-label="利用者F">利用者F</a>
-                </div>
+                @foreach (var user in Model)
+                {
+                    <div class="col d-flex justify-content-center">
+                        <!-- user.user_id をパラメータにして IndividualSupportService へ飛ぶ -->
+                        <a href="@Url.Action(
+                action: "IndividualSupportPlans",
+                controller: "Home",
+                values: new { user_id = user.user_id }
+            )"
+                           class="shadow-sm rounded-link"
+                           aria-label="@user.name">
+                            @user.name
+                        </a>
+                    </div>
+                }
             </div>
         </div>
     </div>

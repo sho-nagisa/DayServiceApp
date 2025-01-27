@@ -1,33 +1,75 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model DayServiceApp.Models.User
+
+@{
+    ViewData["Title"] = "利用者個人記録";
 }
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>らくらくHUG</title>
+    <title>@Model.name 個人記録</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!---css/site.css-->
-    <link rel="stylesheet" href="~/css/site.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
-    <header class="py-3 border-bottom">
-        <h2 class="text-center fw-bold text-white">らくらくHUG</h2>
+    <header class="py-3 border-bottom text-center">
+        <h2 class="fw-bold">@Model.name 個人記録</h2>
     </header>
-    <div class="text-center py-5">
-        <div class="container">
-            <div class="d-flex flex-column align-items-center gap-4 mt-4">
-                <button class="btn shadow-sm rounded-button">個別記録</button>
-                <button class="btn shadow-sm rounded-button">個別支援計画作成</button>
-                <button class="btn shadow-sm rounded-button">日報作成</button>
-            </div>
+    <div class="container py-5">
+        <div class="form-container mx-auto" style="max-width: 600px;">
+            <h3 class="text-center form-title mb-4">個人記録フォーム</h3>
+
+            <!-- POST先をRecord/Saveにする -->
+            <form method="post" action="/Record/Save">
+                <input type="hidden" name="user_id" value="@Model.user_id" />
+
+                <!-- 記録者の氏名 -->
+                <div class="mb-3">
+                    <label for="recorder_name" class="form-label">記録者の氏名</label>
+                    <input type="text" class="form-control" id="recorder_name" name="recorder_name" required>
+                </div>
+
+                <!-- 利用者の気づき -> notices -->
+                <div class="mb-3">
+                    <label for="notices" class="form-label">利用者の気づき</label>
+                    <select class="form-select mb-2" id="notices" name="notices">
+                        <option value="">選択してください</option>
+                        <option value="気づき1">気づき1</option>
+                        <option value="気づき2">気づき2</option>
+                        <option value="気づき3">気づき3</option>
+                    </select>
+                </div>
+
+                <!-- 出来事・気づきの詳細 -> details -->
+                <div class="mb-3">
+                    <label for="details" class="form-label">出来事・気づきの詳細を入力</label>
+                    <textarea class="form-control" id="details" name="details" rows="3" required></textarea>
+                </div>
+
+                <!-- 支援内容・対応の詳細 -> support_details -->
+                <div class="mb-3">
+                    <label for="support_details" class="form-label">支援内容・対応の詳細を入力</label>
+                    <textarea class="form-control" id="support_details" name="support_details" rows="3" required></textarea>
+                </div>
+
+                <!-- その後の行動・変化の詳細 -> post_changes -->
+                <div class="mb-3">
+                    <label for="post_changes" class="form-label">その後の利用者の行動・変化の詳細を入力</label>
+                    <textarea class="form-control" id="post_changes" name="post_changes" rows="3" required></textarea>
+                </div>
+
+                <!-- 登録ボタン -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">登録</button>
+                </div>
+            </form>
         </div>
     </div>
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
